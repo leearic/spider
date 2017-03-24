@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<script src="/static/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="/static/js/bootstrap.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+      <p class="browsehappy">你正在使用<strong style="color: brown">过时的</strong>浏览器. 请升级你的浏览器，我们推荐 <a href="http://w.x.baidu.com/alading/anquan_soft_down_ub/14744" style="color: firebrick">chrome</a> 来提高更好的体验</p>
+    <![endif]-->
+
+
+
+<!-- CuFon ends -->
+</head>
+<body>
+<div class="main">
+
+
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="brand" href="/">汽车交易</a>
+    <ul class="nav">
+      <li class="active"><a href="/">首页</a></li>
+      <li><a href="https://github.com/leearic/irole">Cosplay妹子图</a></li>
+      <li><a href="https://github.com/leearic/myqiubai">糗事百科笑话集</a></li>
+      <li><a href="https://github.com/leearic/baidunuomi">糯米网美食大全</a></li>
+      <li><a href="https://github.com/leearic/baixihecom">白溪河微信服务号</a></li>
+    </ul>
+    <form class="navbar-form pull-left" action="/detail/" method="get">
+      <input type="text" id="keyword" name="keyword" class="span2" style="width:400px" placeholder="福特">
+      <button type="submit" class="btn">搜搜</button>
+    </form>
+
+  </div>
+</div>
+
+
+<br/><br/><br/><br/><br/><br/><br/>
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+
+
+
+
+
+<div style="width:620px; height:300px" >
+
+              <div id="myCarousel" class="carousel slide">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner f">
+                  <div class="item active">
+                    <img src="/static/images/index/002.jpg" alt="" style="width=600; height=300" >
+                    <div class="carousel-caption">
+                      <h4>卡车 （载重汽车）</h4>
+                      <p>载货汽车，一般称作货车，又称作卡车，指主要用于运送货物的汽车，有时也指可以牵引其他车辆的汽车，属于商用车辆类别。一般可依照车的重量分为重型和轻型两种。绝大部分货车都以柴油引擎作为动力来源，但有部分轻型货车使用汽油、石油气或者天然气</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="/static/images/index/001.jpg" alt="" style="width=600; height=300" >
+                    <div class="carousel-caption">
+                      <h4>小轿车 </h4>
+                      <p>实际上是小车中加了个轿字，一般就指的是载7人及7人以下的小车。而中国文化中轿子，以前达官贵人才出门坐轿子，是很体面的事情。所以沿用古代的轿子。便有小轿车代步这样的！</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="/static/images/index/003.jpg" alt="" style="width=600; height=300">
+                    <div class="carousel-caption">
+                      <h4>老爷车 （古典车）</h4>
+                      <p>老爷车也称古典车，一般指二战前或更老的汽车。老爷车是一种怀旧的产物，是人们过去曾经使用的，现在仍可以工作的汽车。</p>
+                    </div>
+                  </div>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+              </div>
+            </div>
+
+      <br/><br/><br/>
+      {% for car in cars %}
+        <div class="article">
+          <a href="#" class="com">11</a>
+          <a href="/detail/{{ car.id }}"><h2>{{ car.name }}</h2> </a><div class="clr"></div>
+          <p><span class="date">{{ car.owner }}
+          </span> &nbsp;|&nbsp; {{ car.car_address }}&nbsp;|&nbsp;  {{ car.price }}</p>
+          <img src="{{ car.image }}" width="617" height="199" alt="image" />
+          <p>{{ car.owner_say }}</p>
+           </div>
+   {% endfor %}
+
+
+{% if cars.has_previous %}
+        <a class='paginator' title='上一页' href='/page/{{ cars.previous_page_number }}'><span>上一页</span></a>
+ {% endif %}
+&nbsp;&nbsp;&nbsp;
+
+<!--
+ {% for page in  cars.paginator.page_range %}
+     {% if page = cars.number %}
+         <a class='paginator_current' title='当前页:{{ page }}'><span>{{ page }}</span></a>
+     {% else %}
+         <a class='paginator' href='/page/{{ page }}' title='{{ page }}'><span>{{ page }}</span></a>
+     {% endif %}
+ {% endfor %}
+-->
+
+ {% if cars.has_next %}
+     <a class='paginator' title='下一页' href='/page/{{ cars.next_page_number }}'><span>下一页</span></a>
+ {% endif %}
+      </div>
+
+
+      <div class="sidebar">
+        <div class="searchform"></div>
+        <div class="gadget">
+            <img src="/static/images/admin.png" height="200" width="200" class="img-circle">
+
+          <ul class="sb_menu">
+            <li></li>
+            <li>姓名： Aric</li>
+            <li>Q Q： leearic@126.com</li>
+            <li>电话： 13771691089</li>
+            <li>技能： 网络/系统(windows linux FreeBSD)/程序设计(python)</li>
+            <li>证书： CCNA/嵌入式培训证书</li>
+            <li>职业： 运维工程师</li>
+
+
+          </ul>
+        </div>
+        <div class="gadget">
+          <h2 class="star"><span>关于本站</span></h2><div class="clr"></div>
+          <ul class="ex_menu">
+            <li>操作系统： FreeBSD+apache(wsgi)</li>
+            <li>开发语言： Python2.7</li>
+            <li>前端环境： Django + bootstrap2</li>
+            <li>爬虫框架： scrapy</li>
+            <li>前端进度：</li>
+            <div class="progress">
+          	<div class="bar" style="width: 60%;"></div>
+            </div>
+            <li>爬虫进度：</li>
+            <div class="progress">
+          	<div class="bar" style="width: 90%;"></div>
+            </div>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+       说明1
+      </div>
+      <div class="col c2">
+        说明2
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright <a href="/">MyWebSite</a>.</p>
+      <ul class="fmenu">
+        <li class="active"><a href="/">Home</a></li>
+
+      </ul>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

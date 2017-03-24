@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>详细页面</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<script src="/static/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="/static/js/bootstrap.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+      <p class="browsehappy">你正在使用<strong style="color: brown">过时的</strong>浏览器. 请升级你的浏览器，我们推荐 <a href="http://w.x.baidu.com/alading/anquan_soft_down_ub/14744" style="color: firebrick">chrome</a> 来提高更好的体验</p>
+    <![endif]-->
+
+
+<!-- CuFon ends -->
+</head>
+<body>
+
+
+
+
+<div class="main">
+
+
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="brand" href="/">汽车交易</a>
+    <ul class="nav">
+      <li class="active"><a href="/">首页</a></li>
+      <li><a href="https://github.com/leearic/irole">Cosplay妹子图</a></li>
+      <li><a href="https://github.com/leearic/myqiubai">糗事百科笑话集</a></li>
+      <li><a href="https://github.com/leearic/baidunuomi">糯米网美食大全</a></li>
+      <li><a href="https://github.com/leearic/baixihecom">白溪河微信服务号</a></li>
+    </ul>
+    <form class="navbar-form pull-left" action="/detail/" method="get">
+      <input type="text" id="keyword" name="keyword" class="span2" style="width:400px" placeholder="福特">
+      <button type="submit" class="btn">搜搜</button>
+    </form>
+
+  </div>
+</div>
+
+
+
+
+<br/><br/><br/><br/><br/><br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="content">
+    <div class="content_resize">
+      
+      <div class="mainbar">
+        <div class="article">
+          <h2><span>{{ car.name }} </span></h2><div class="clr"></div>
+          <!-- <p>{{ car.owner }}<span>&nbsp;&nbsp;</span>  | {{ car.price }}</p> -->
+
+          <p> {{ car.owner  }}</p>
+          <p> 汽车型号: {{ car.module  }}</p>
+          <p> 汽车价格: {{ car.price  }}</p>
+          <p> 汽车上牌时间: {{ car.registed_time  }}</p>
+          <p> 行程:{{ car.mileage  }}</p>
+          <p> 排量:{{ car.displacement  }}</p>
+          <p> 汽车所在地: {{ car.car_address  }}</p>
+          <p> 车主说明: {{ car.owner_say  }}</p>
+          ----------------------------------------------------------
+
+          <p> 车身颜色:{{ test.color  }}</p>
+          <p> 年检时间:{{ test.annual_time  }}</p>
+          <p> 交强险时间:{{ test.delivery_time  }}</p>
+          <p> 商业保险到期时间: {{ test.insurance_time  }}</p>
+          <p> 归属地:{{ test.address  }}</p>
+          <p> 过户次数: {{ test.transfer_number  }}</p>
+          <p> 购车发票:{{ test.invoice  }}</p>
+          <p> 4s 保养:{{ test.maintenance  }}</p>
+          <p> 事故排查:{{ test.accident_investigation  }}</p>
+          <p> 安全检测:{{ test.safety_detection  }}</p>
+          <p> 外观检测:{{ test.appearance_detection  }}</p>
+          <p> 驾驶检测: {{ test.driving_test  }}</p>
+
+        <img src= {{ images.url0 }}>
+            <img src= {{ images.url1 }}>
+            <img src= {{ images.url2 }}>
+            <img src= {{ images.url3 }}>
+            <img src= {{ images.url4 }}>
+            <img src= {{ images.url5 }}>
+            <img src= {{ images.url6 }}>
+        </div>
+
+
+
+
+      </div>
+      
+      <div class="sidebar">
+        <div class="searchform"></div>
+        <div class="gadget">
+            <img src="/static/images/admin.png" height="200" width="200" class="img-circle">
+
+          <ul class="sb_menu">
+            <li></li>
+            <li>姓名： Aric</li>
+            <li>Q Q： leearic@126.com</li>
+            <li>电话： 13771691089</li>
+            <li>技能： 网络/系统(windows linux FreeBSD)/程序设计(python)</li>
+            <li>证书： CCNA/嵌入式培训证书</li>
+            <li>职业： 运维工程师</li>
+
+
+          </ul>
+        </div>
+        <div class="gadget">
+          <h2 class="star"><span>关于本站</span></h2><div class="clr"></div>
+          <ul class="ex_menu">
+            <li>操作系统： FreeBSD+apache(wsgi)</li>
+            <li>开发语言： Python2.7</li>
+            <li>前端环境： Django + bootstrap2</li>
+            <li>爬虫框架： scrapy</li>
+            <li>前端进度：</li>
+            <div class="progress">
+          	<div class="bar" style="width: 60%;"></div>
+            </div>
+            <li>爬虫进度：</li>
+            <div class="progress">
+          	<div class="bar" style="width: 90%;"></div>
+            </div>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+      <div class="clr"></div>
+    </div>
+  </div>
+
+ <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+       说明1
+      </div>
+      <div class="col c2">
+        说明2
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright <a href="/">MyWebSite</a>.</p>
+      <ul class="fmenu">
+        <li class="active"><a href="/">Home</a></li>
+
+      </ul>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

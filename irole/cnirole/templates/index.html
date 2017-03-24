@@ -1,0 +1,117 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>www.irole.cn</title> 
+<meta name=description content=""> 
+<meta name=viewport content="width=device-width">
+
+    
+<link href="http://files.cnblogs.com/files/lioaric/bootstrap.css" rel="stylesheet" type="text/css">  
+<link rel=stylesheet href="http://files.cnblogs.com/files/lioaric/aaa5.main.css" type="text/css"/>  
+<script type="text/javascript" src="http://files.cnblogs.com/files/lioaric/jquery.js"></script>
+<script type="text/javascript" src="http://files.cnblogs.com/files/lioaric/bootstrap.js"></script>
+<script type="text/javascript" src="http://files.cnblogs.com/files/lioaric/8b4c79a4.main.js"> </script> 
+<script type="text/javascript" src="http://files.cnblogs.com/files/lioaric/showimg.js"> </script>   
+ <!--
+
+
+
+
+ <script type="text/javascript" src="http://files.cnblogs.com/files/lioaric/1de21019.vendor.js"></script>  
+-->
+</head> 
+<body> <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->    
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/page/1/">o(︶︿︶)o ~爱萝莉</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/page/1/">首页 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">LOL</a></li>       
+      </ul>
+      <form class="navbar-form navbar-left" role="search" action="http://image.baidu.com/">
+        <div class="form-group">
+          <input type="text" class="form-control" name="word" id="word" placeholder="英雄联盟美女COS">
+        </div>
+        <button type="submit" class="btn btn-default">查询</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://www.baixihe.com/about-me/">关于</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    
+<br/>
+    
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" style="display:none;" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="modal-dialog" role="document">
+            <div class="modal-body">
+              <div class="images" >
+                  <img src="" />
+              </div>
+           	  <div class="ad">
+                   <a></a>
+              </div>
+              </div>
+
+  </div>
+</div>
+    <br/>
+     <div class=container-fluid> 
+     <div class=pins-grid> 
+                 <!-- 这里开始做循环 -->
+        {% for cos  in cosplay8 %}
+         <div class=pin>
+        	 <div class=image>
+             <img data-src="{{ cos.base_image_url }}">
+             </div>
+             <div class=description>{{ cos.base_image_content }}</div>
+             <!-- <div class=credits> Sample credits </div> -->
+	     </div>
+        {% endfor %}
+       </div>
+     </div>
+
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div>
+        {% if cosplay8.has_previous %}
+                <a class='paginator' title='上一页' href='/page/{{ cosplay8.previous_page_number }}'><span>上一页</span></a>
+         {% endif %}
+         {% for page in cosplay8.paginator.page_range %}
+             {% if page = cosplay8.number %}
+                 <a class='paginator_current' title='当前页:{{ page }}'><span>{{ page }}</span></a>
+             {% else %}
+                 <a class='paginator' href='/page/{{ page }}' title='{{ page }}'><span>{{ page }}</span></a>
+             {% endif %}
+         {% endfor %}
+         {% if cosplay8.has_next %}
+             <a class='paginator' title='下一页' href='/page/{{ cosplay8.next_page_number }}'><span>下一页</span></a>
+         {% endif %}
+        </div>
+</nav>
+
+
+     </body>
+
+     </html>
+    

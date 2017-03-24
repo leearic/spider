@@ -1,0 +1,13 @@
+# VERSION  7.*
+
+
+# Spder:
+
+if $programname=='master' then 	 @192.168.1.135:514
+if $programname=='slave' then   @192.168.1.135:514
+
+# rsyslog Server:
+if $programname=='master' then 	 /var/log/spider/master.log
+if $programname=='slave'  then   /var/log/spider/slave.log
+
+

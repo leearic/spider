@@ -1,0 +1,23 @@
+		<ul class="icatelists">
+
+            {% for c in coser %}
+			<li><a href="/detail/{{ c.id }}" target="_blank"><i>
+                <img src="{{ c.topimage }}" class="lazyload" data-original="{{ c.topimage }}" alt="{{ c.title }}" style="display: block;"></i>
+                <h5>{{ c.title }}</h5></a>
+                <span><a href="{{ c.come_from }}"><h6>原始网站</h6></a>   <em>{{ c.addtime }}</em></span>
+            </li>
+
+        {% endfor %}
+		</ul>
+
+
+    <div class="listpage">
+ {% if coser.has_previous %}
+        <a class='paginator' title='上一页' href='/page/{{ coser.previous_page_number }}'>上一页</a>
+ {% endif %}
+
+
+
+ {% if coser.has_next %}
+     <a class='paginator' title='下一页' href='/page/{{ coser.next_page_number }}'>下一页</a>
+{% endif %}

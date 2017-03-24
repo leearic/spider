@@ -1,0 +1,20 @@
+说明：
+    我的运行环境是: windows 8.1 64bit + python 2.7.8
+    运行该程序需要安装：  scrapy 1.0
+
+安装步骤：
+    1.安装 python
+    2.安装 pip
+    3.安装 scrapy # pip install scrapy
+
+运行程序：
+    scrapy  crawl uumnt
+
+    程序不会有任何输出，但是在uumnt目录下，会有个image目录产生.该目录里就有整个网站的图片
+
+
+
+Bug：
+    目前发现的问题：
+        1.图片好像要乱跑, 暂时不解决. 等后期和其他项目整合一起做修改
+        2.用了GBK 编码，不知道在类unix系统中会不会出现乱码.

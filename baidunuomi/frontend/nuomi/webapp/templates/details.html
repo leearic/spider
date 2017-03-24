@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>详细信息</title>
+<meta name="keywords" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="/static/css/nuomi_index.css"/>
+
+<script type="text/javascript" src="http://files.cnblogs.com/files/lioaric/jquery.js"></script>
+<link href="http://files.cnblogs.com/files/lioaric/bootstrap.css" rel="stylesheet" type="text/css">  
+</head>
+
+<body>
+      <!--header start-->
+    <div id="header">
+      <nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">irole</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">美食 <span class="sr-only">(current)</span></a></li>
+        <li><a href="/">美图</a></li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search" action="/details/">
+        <div class="form-group">
+          <input type="text" class="form-control" name="wd" id="wd" placeholder="四川火锅" >
+        </div>
+        <button type="submit" class="btn btn-default">查询</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://www.baixihe.com/about-irole/">关于</a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    
+      <p>&nbsp;</p>
+      <p><br/>
+      </p>
+    </div>
+     <!--header end-->
+    <!--nav--><!--nav end-->
+    <!--content start-->
+    <div id="content">
+       <!--left-->
+         <div class="left" id="learn">
+           <div class="weizi">
+           <div class="wz_text">共找到：{{ count }}条相关记录</h1></div>
+           </div>
+           <div class="l_content">
+              <!--wz-->
+          {% for product in products %}
+            <div class="wz">
+            <h3><a href="#" title="{{product.product.name}}">{{product.product.name}}</a></h3>
+             <dl>
+               <dt><img src="{{product.image.real_image_url}}" width="200"  height="123" alt=""></dt>
+               <dd>
+                 <p class="dd_text_1">{{product.detail}}</p>
+               <p class="dd_text_2">
+               <span class="left author">admin</span> <span class="left sj">地区:{{ product.product.zone.name }}</span>
+               <span class="left fl">分类:<a href="#" title="{{product.product.category.category}}">{{product.product.category.category}}</a></span>
+                   <span class="left yd"><a href="{{ product.real_url }}" title="原文地址">原文地址</a>
+               </span>
+                <div class="clear"></div>
+               </p>
+               </dd>
+               <div class="clear"></div>
+             </dl>
+            </div>
+            {% endfor %}
+
+
+            <div>
+            {% if products.has_previous %}
+            <a class='paginator' title='上一页' href='?wd={{ keyword }}&&pages={{ products.previous_page_number }}'><span>上一页</span></a>
+            {% endif %}
+
+            {% if products.has_next %}
+            <a class='paginator' title='下一页' href='?wd={{ keyword }}&&pages={{ products.next_page_number }}'><span>下一页</span></a>
+            {% endif %}
+            </div>
+           </div>
+
+         </div>
+         <!--end left -->
+         <!--right-->
+      <div class="right" id="c_right">
+        <div class="s_about">
+          <h2>美食推荐</h2>
+           <img src="{{rcm.image.real_image_url}}" width="230" height="230" alt="博主"/>
+           <p>地区：{{ rcm.product.zone.name }}</p>
+           <p>分类：{{rcm.product.category.category}}</p>
+           <p>评分： {{rcm.star}}</p>
+           <p>简介： {{rcm.detail}} </p>
+
+           <p>
+           <a href="{{ rcm.real_url }}" title="直达连接"><span class="left b_1">直达连接</span></a>
+           <div class="clear"></div>
+           </p>
+        </div>
+        <!--栏目分类--><!--end-->
+        </div>
+         <!--end  right-->
+      <div class="clear"></div>
+         
+    </div>
+    <!--content end-->
+
+    <!--footer-->
+    <div id="footer">
+     <p>©2014 irole.cn 使用必读 ＊尊重他人劳动成果，转载请自觉注明出处！注：此代码仅供学习交流</p>
+    </div>
+    <!--footer end-->
+
+</body>
+</html>
+

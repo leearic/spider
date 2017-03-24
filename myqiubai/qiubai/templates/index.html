@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>糗事百科</title>
+ <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+
+
+<body style="background-color: #EAEAEA">
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="brand" href="#">糗事百科Demo</a>
+    <ul class="nav">
+      <li class="active"><a href="#">首页</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </div>
+</div>
+
+<ul class="breadcrumb">
+  <li><a href="#">首页</a> <span class="divider">/</span></li>
+  <li><a href="#">Library</a> <span class="divider">/</span></li>
+  <li class="active">Data</li>
+</ul>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span8" >
+
+        <!-- 这里开始做循环 -->
+        {% for qiubai  in qiubais %}
+      <div class="show laugh"  style="background-color: #eeeeee">
+      {% if qiubai.user_name != 'N' %}
+       <img width="30" height="30" src="{{ qiubai.user_image }}" class="img-circle">
+        {{ qiubai.user_name }}
+      {% endif %}
+
+       <blockquote>
+           {{ qiubai.content }}
+       </blockquote>
+      {% if qiubai.thumb != 'N' %}
+        <img src="{{ qiubai.thumb }}" class="img-rounded" align="middle">
+      {% endif %}
+      {% if qiubai.video != 'N' %}
+        <video class="video-js vjs-default-skin vjs-big-play-button" controls="controls" preload="none" width="480" height="480"
+               poster="{{ qiubai.video_image }}" data-setup="{&quot;example_option&quot;:true}">
+        <source src="{{ qiubai.video }}" type="video/mp4">
+        </video>
+      {% endif %}
+       <div  class="status">
+           <small > {{ qiubai.laugh }} 好笑 · {{ qiubai.coments }} 评论
+          </small>
+       </div>
+        <br/> <br/>
+     </div>
+        {% endfor %}
+
+
+    {% if qiubais.has_previous %}
+        <a class='paginator' title='上一页' href='/qiubai/page/{{ qiubais.previous_page_number }}'><span>上一页</span></a>
+ {% endif %}
+ {% for page in qiubais.paginator.page_range %}
+     {% if page = qiubais.number %}
+         <a class='paginator_current' title='当前页:{{ page }}'><span>{{ page }}</span></a>
+     {% else %}
+         <a class='paginator' href='/qiubai/page/{{ page }}' title='{{ page }}'><span>{{ page }}</span></a>
+     {% endif %}
+ {% endfor %}
+ {% if qiubais.has_next %}
+     <a class='paginator' title='下一页' href='/qiubai/page/{{ qiubais.next_page_number }}'><span>下一页</span></a>
+ {% endif %}
+
+
+    </div>
+    <div class="span4">
+           <div style="position:relative;width:300px;height:250px;"><a href="http://click.tanx.com/cc?e=I%2fuiC49tiojyMB%2bRHlSDi5F6qyTkW7TfZYIkwTFD2veJUnStXncCpA6%2bfd6%2feJjyxOcPyy9%2bHzn5apr7zdLmqTNFZ9wt8Gghzsfss8%2fKgaWl%2fhRx0hlCb8mDS5ikeamUnQHo1CMq4IyY8xd7SYjw8qBXA9HnNBBrt4gYS73KK6I%3d&amp;u=http%3a%2f%2faw.kejet.net%2fc%3f%26v%3d1437844684%26d%3doGy%26c%3djs%26m%3d2q1%26n%3d1%26ip%3d183.206.179.100%26f%3dqiushibaike%26y%3dmm_108378320_8760716_29674533%26g%3dhttp%253A%252F%252Fvda.fh77.net%252F%253Fq%253D150417p3VdVcO%2526sid%253D%2525SD%2525&amp;k=173" target="_blank" style="position:absolute;top:0;left:0;bottom:0;right:0;display:block;width:100%;height:expression(this.parentNode.scrollHeight);filter:alpha(opacity=0);opacity:0;background:#FFF;"></a><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="300" height="250" align="middle"><param name="allowScriptAccess" value="always"><param name="quality" value="high"><param name="wmode" value="opaque"><param name="movie" value="http://m.kejet.net/ms/15417/b2971bed2.swf"><embed wmode="opaque" quality="high" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" src="http://m.kejet.net/ms/15417/b2971bed2.swf" width="300" height="250"></object></div>
+       <div style="position:relative;width:300px;height:250px;"><a href="http://click.tanx.com/cc?e=I%2fuiC49tiojyMB%2bRHlSDi5F6qyTkW7TfZYIkwTFD2veJUnStXncCpA6%2bfd6%2feJjyxOcPyy9%2bHzn5apr7zdLmqTNFZ9wt8Gghzsfss8%2fKgaWl%2fhRx0hlCb8mDS5ikeamUnQHo1CMq4IyY8xd7SYjw8qBXA9HnNBBrt4gYS73KK6I%3d&amp;u=http%3a%2f%2faw.kejet.net%2fc%3f%26v%3d1437844684%26d%3doGy%26c%3djs%26m%3d2q1%26n%3d1%26ip%3d183.206.179.100%26f%3dqiushibaike%26y%3dmm_108378320_8760716_29674533%26g%3dhttp%253A%252F%252Fvda.fh77.net%252F%253Fq%253D150417p3VdVcO%2526sid%253D%2525SD%2525&amp;k=173" target="_blank" style="position:absolute;top:0;left:0;bottom:0;right:0;display:block;width:100%;height:expression(this.parentNode.scrollHeight);filter:alpha(opacity=0);opacity:0;background:#FFF;"></a><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="300" height="250" align="middle"><param name="allowScriptAccess" value="always"><param name="quality" value="high"><param name="wmode" value="opaque"><param name="movie" value="http://m.kejet.net/ms/15417/b2971bed2.swf"><embed wmode="opaque" quality="high" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" src="http://m.kejet.net/ms/15417/b2971bed2.swf" width="300" height="250"></object></div>
+        </div>
+  </div>
+</div>
+        <br/> <br/>
+<div>
+<link href="http://static.qiushibaike.com/css/dist/web/app.min.css?v=eb06d" media="screen, projection" rel="stylesheet" type="text/css" />
+<div class="foot">
+<div class="foot-nav">
+  <div class="foot-nav-1">
+<h5>关于</h5>
+<ul>
+<li><a href="http://about.qiushibaike.com/about.html" target="_blank" rel="nofollow">糗事百科</a></li>
+<li><a href="http://about.qiushibaike.com/web_jobs.html" target="_blank" rel="nofollow">加入我们</a></li>
+<li><a href="http://about.qiushibaike.com/feedback.html" target="_blank" rel="nofollow">在线反馈</a></li>
+<li><a href="http://about.qiushibaike.com/agreement.html" target="_blank" rel="nofollow">用户协议</a></li>
+<li><a href="http://about.qiushibaike.com/policy.html" target="_blank" rel="nofollow">隐私政策</a></li>
+</ul>
+</div>
+<div class="foot-nav-2">
+<h5>手机</h5>
+<ul>
+<li><a href="http://android.myapp.com/android/appdetail.jsp?appid=107431&icfa=15144196000105020000&lmid=2031" target="_blank" class="foot-icon-download" rel="external nofollow">安卓客户端</a></li>
+<li><a href="http://itunes.apple.com/app/id422853458" target="_blank" class="foot-icon-download" rel="external nofollow">iPhone客户端</a></li>
+<li>手机访问 m.qiushibaike.com</li>
+</ul>
+</div>
+<div class="foot-nav-3">
+<h5>订阅</h5>
+<ul>
+<li><a href="http://weibo.com/qiushibaike" target="_blank" rel="external nofollow">新浪微博</a></li>
+<li><a href="http://user.qzone.qq.com/1492495058" target="_blank" rel="external nofollow">QQ空间</a></li>
+<li><a href="#" class="foot-wechat" rel="nofollow">微信<span class="external nofollow"></span></a></li>
+<li><a href="http://t.qq.com/qiushibaike" target="_blank" rel="external nofollow">腾讯微博</a></li>
+<li><a href="http://mail.qq.com/cgi-bin/bookcol?colid=314" target="_blank" rel="external nofollow">QQ邮箱订阅</a></li>
+</ul>
+</div>
+<div class="foot-nav-4">
+<h5>合作</h5>
+<ul>
+<li>糗百粉丝群：<a href="http://user.qzone.qq.com/1492495058/blog/1408597608" target="_blank" class="foot-icon-qq" rel="external nofollow">全国</a></li>
+<li>商务合作：<a href="mailto:marketing@qiushibaike.com" rel="nexternal nofollow">marketing@qiushibaike.com</a></li>
+</ul>
+</div>
+<div class="foot-clear"></div>
+</div>
+<div class="foot-copyrights">
+&copy; Qiushibaike.com 版权所有<span class="foot-col-line">|</span>
+Demo使用,所有版权属于"糗事百科",如有侵权,与本人无关.
+</div>
+</div>
+</div>
+
+
+
+</body>
+</html>

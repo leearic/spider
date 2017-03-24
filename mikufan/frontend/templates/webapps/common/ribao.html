@@ -1,0 +1,10 @@
+			<ul class="foucs660" style="width: 2640px; left: -1320px;">
+
+                {%   for topc in  TopCoser  %}
+
+                    <li><a href="/detail/{{ topc.id }}" target="_blank">
+                    <img src="{{ topc.topimage }}">
+                        <b><i>图说</i>{{ topc.title }}</b></a></li>
+
+                {% endfor %}
+			</ul>
