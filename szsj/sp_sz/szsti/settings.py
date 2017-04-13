@@ -14,7 +14,7 @@ BOT_NAME = 'szsti'
 SPIDER_MODULES = ['szsti.spiders']
 NEWSPIDER_MODULE = 'szsti.spiders'
 
-djpath = "/home/aric/PycharmProjects/szsj/dj_sz"
+djpath = "/home/aric/PycharmProjects/spider/szsj//dj_sz"
 
 LOG_LEVEL='ERROR'
 

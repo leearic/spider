@@ -9,10 +9,15 @@ class qichachca(object):
     @classmethod
     def BaseInfo(self, response, number):
         self.item = {}
-        self.item["Unit_id"] = number
+        self.item["searching_name"] = number
+        self.item['searched_name'] = \
+        response.xpath('//*[@id="company-top"]/div/div[1]/span[2]/span/span[1]/text()').extract()[0].strip()
         self.item["phone_nunber"] = response.xpath('//*[@id="company-top"]/div/div[1]/span[2]/small[1]/text()').extract()[0]
         self.item["code"] = response.xpath('//*[@id="Cominfo"]/table/tbody/tr[1]/td[2]/text()').extract()[0]
-        self.item["Registration_number"] = response.xpath('//*[@id="Cominfo"]/table/tbody/tr[1]/td[3]/text()').extract()[0]
+
+        self.item["Registration_number"] = response.xpath('//*[@id="Cominfo"]/table/tbody/tr[1]/td[4]/text()').extract()[0]
+
+
         self.item["Organization_code"] =  response.xpath('//*[@id="Cominfo"]/table/tbody/tr[2]/td[2]/text()').extract()[0]
         self.item["Operating_state"] = response.xpath('//*[@id="Cominfo"]/table/tbody/tr[2]/td[4]/text()').extract()[0]
         self.item["Legal_representative"] = response.xpath('//*[@id="Cominfo"]/table/tbody/tr[3]/td[2]/text()').extract()[0]
@@ -48,7 +53,9 @@ class qichachca(object):
     def  Unit_Base_Shareholder_Info(self, response, number):
         # 股东信息
         self.item = {}
-        self.item["Unit_id"] = number
+        self.item["searching_name"] = number
+        self.item['searched_name'] = \
+        response.xpath('//*[@id="company-top"]/div/div[1]/span[2]/span/span[1]/text()').extract()[0].strip()
         tbody = response.xpath('//*[@id="Sockinfo"]/table/tbody/tr')
 
         for i in tbody:
@@ -70,7 +77,9 @@ class qichachca(object):
     def  Unit_Base_Changed_Info(self, response, number):
             # 变更信息
         self.item = {}
-        self.item["Unit_id"] = number
+        self.item["searching_name"] = number
+
+        self.item['searched_name'] = response.xpath('//*[@id="company-top"]/div/div[1]/span[2]/span/span[1]/text()').extract()[0].strip()
         tbody = response.xpath('//*[@id="Changelist"]/table/tbody/tr')
 
         for i in tbody:
@@ -94,7 +103,7 @@ class qichachca(object):
 
         print u"Unit_annual_reports_Base_Info"
         self.item = {}
-        self.item["Unit_id"] = number
+        self.item["searching_name"] = number
 
         self.item["Registration_number"] = response.xpath('//*[@id=u"2015年度报告"]/table[1]/tbody/tr[1]/td[2]/text()').extract()[0]
         self.item["Business_state"] = response.xpath('//*[@id=u"2015年度报告"]/table[1]/tbody/tr[1]/td[4]/text()').extract()[0]

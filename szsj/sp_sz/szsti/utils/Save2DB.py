@@ -65,20 +65,6 @@ class DjORM(object):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     #--------------------------------------------------------------
     #   以下数据来自： qichachca.com
     #--------------------------------------------------------------
@@ -88,7 +74,11 @@ class DjORM(object):
         unit_Base_Info = Unit_Base_Info()
         try:
             # 企业详细信息-1
-            unit_Base_Info.Unit_id = item['Unit_id']
+            unit_Base_Info.searching_name = item['searching_name']
+            unit_Base_Info.searched_name = item['searched_name']
+
+
+
             unit_Base_Info.phone_nunber = item['phone_nunber']
             # unit_Base_Info.email = item['email']
             # unit_Base_Info.website = item['website']
@@ -125,7 +115,11 @@ class DjORM(object):
         # 股东信息
         unit_Base_Info_Shareholder_Info = Unit_Base_Info_Shareholder_Info()
         try:
-            unit_Base_Info_Shareholder_Info.Unit_id = item['Unit_id']
+            unit_Base_Info_Shareholder_Info.searching_name = item['searching_name']
+            unit_Base_Info_Shareholder_Info.searched_name = item['searched_name']
+
+
+
             unit_Base_Info_Shareholder_Info.Shareholder = item['Shareholder']
             unit_Base_Info_Shareholder_Info.Shareholding_ratio = item['Shareholding_ratio']
             unit_Base_Info_Shareholder_Info.Subscribed_capital_contribution = item['Subscribed_capital_contribution']
@@ -143,7 +137,9 @@ class DjORM(object):
         # 变更信息
         unit_Base_Info_Changed_Info = Unit_Base_Info_Changed_Info()
         try:
-            unit_Base_Info_Changed_Info.Unit_id = item['Unit_id']
+            unit_Base_Info_Changed_Info.searching_name = item['searching_name']
+            unit_Base_Info_Changed_Info.searched_name = item['searched_name']
+
             unit_Base_Info_Changed_Info.Change_date = item['Change_date']
             unit_Base_Info_Changed_Info.Change_item = item['Change_item']
             unit_Base_Info_Changed_Info.Before_change = item['Before_change']
@@ -160,7 +156,9 @@ class DjORM(object):
         # 企业年报-企业基本信息
         unit_annual_reports_Base_Info = Unit_annual_reports_Base_Info()
         try:
-            unit_annual_reports_Base_Info.Unit_id = item['Unit_id']
+            unit_annual_reports_Base_Info.searching_name = item['searching_name']
+            unit_annual_reports_Base_Info.searched_name = item['searched_name']
+
             unit_annual_reports_Base_Info.Registration_number = item['Registration_number']
             unit_annual_reports_Base_Info.Business_state = item['Business_state']
             unit_annual_reports_Base_Info.Enterprise_telephone = item['Enterprise_telephone']
@@ -182,7 +180,8 @@ class DjORM(object):
         # 企业年报-网站或网店信息
         unit_annual_reports_Website_Info = Unit_annual_reports_Website_Info()
         try:
-            unit_annual_reports_Website_Info.Unit_id = item['Unit_id']
+            unit_annual_reports_Website_Info.searching_name = item['searching_name']
+            unit_annual_reports_Website_Info.searched_name = item['searched_name']
             unit_annual_reports_Website_Info.Web_Type = item['Web_Type']
             unit_annual_reports_Website_Info.Web_Name = item['Web_Name']
             unit_annual_reports_Website_Info.Web_Site = item['Web_Site']
@@ -199,7 +198,11 @@ class DjORM(object):
         # 企业年报-发起人及出资信息
         unit_annual_Promoters_and_reports_investment_Info = Unit_annual_Promoters_and_reports_investment_Info()
         try:
-            unit_annual_Promoters_and_reports_investment_Info.Unit_id = item['Unit_id']
+            unit_annual_Promoters_and_reports_investment_Info.searching_name = item['searching_name']
+            unit_annual_Promoters_and_reports_investment_Info.searched_name = item['searched_name']
+
+
+
             unit_annual_Promoters_and_reports_investment_Info.Sponsor =item['Sponsor']
             unit_annual_Promoters_and_reports_investment_Info.Subscribed_capital_contribution = item['Subscribed_capital_contribution']
             unit_annual_Promoters_and_reports_investment_Info.Time_of_subscription =item['Time_of_subscription']
@@ -261,7 +264,7 @@ class DjORM(object):
             # print "ID == 0"
 
         else:
-            aa = HightechInfo.objects.filter(number__lte=Number)
+            aa = HightechInfo.objects.filter(id__gte=Number)
             # print "ID != 0"
         return aa
 

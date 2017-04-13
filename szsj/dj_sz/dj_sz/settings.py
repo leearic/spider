@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hightech',
+    'hexun',
 ]
 
 MIDDLEWARE = [
@@ -77,10 +78,10 @@ WSGI_APPLICATION = 'dj_sz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'szsti',
+        'NAME': 'ccc',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
+        'HOST': '192.168.4.222',
         'PORT': '3306',
     }
 }

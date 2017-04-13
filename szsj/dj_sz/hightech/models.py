@@ -41,7 +41,10 @@ class IDC_Base_Info(models.Model):
 
 class Unit_Base_Info(models.Model):
     # 企业详细信息-1
-    Unit_id  = models.CharField(max_length=255, verbose_name=u"企业序号")
+
+    searched_name  = models.CharField(max_length=255, verbose_name=u"查询到的名字", default='-')
+    searching_name = models.CharField(max_length=255, verbose_name=u"需要查询的名字", default='-')
+
     phone_nunber = models.CharField(max_length=255, verbose_name=u"电话号码")
     # email   = models.CharField(max_length=255, verbose_name=u"邮箱")
     # website = models.CharField(max_length=255, verbose_name=u"网址")
@@ -68,7 +71,8 @@ class Unit_Base_Info(models.Model):
 
 class Unit_Base_Info_Shareholder_Info(models.Model):
     # 股东信息
-    Unit_id = models.CharField(max_length=255, verbose_name=u"企业序号")
+    searched_name  = models.CharField(max_length=255, verbose_name=u"查询到的名字", default='-')
+    searching_name = models.CharField(max_length=255, verbose_name=u"需要查询的名字", default='-')
     Shareholder  = models.CharField(max_length=255, verbose_name=u"股东")
     Shareholding_ratio = models.CharField(max_length=255, verbose_name=u"持股比例")
     Subscribed_capital_contribution   = models.CharField(max_length=255, verbose_name=u"认缴出资额")
@@ -78,7 +82,8 @@ class Unit_Base_Info_Shareholder_Info(models.Model):
 
 class Unit_Base_Info_Changed_Info(models.Model):
     # 变更信息
-    Unit_id = models.CharField(max_length=255, verbose_name=u"企业序号")
+    searched_name  = models.CharField(max_length=255, verbose_name=u"查询到的名字", default='-')
+    searching_name = models.CharField(max_length=255, verbose_name=u"需要查询的名字", default='-')
     Change_date = models.CharField(max_length=255, verbose_name=u"变更日期")
     Change_item  = models.CharField(max_length=255, verbose_name=u"变更项目")
     Before_change = models.CharField(max_length=255, verbose_name=u"变更前")
@@ -86,7 +91,8 @@ class Unit_Base_Info_Changed_Info(models.Model):
 
 class Unit_annual_reports_Base_Info(models.Model):
     # 企业年报-企业基本信息
-    Unit_id = models.CharField(max_length=255, verbose_name=u"企业序号")
+    searched_name  = models.CharField(max_length=255, verbose_name=u"查询到的名字", default='-')
+    searching_name = models.CharField(max_length=255, verbose_name=u"需要查询的名字", default='-')
     Registration_number = models.CharField(max_length=255, verbose_name=u"注册号")
     Business_state = models.CharField(max_length=255, verbose_name=u"企业经营状态")
     Enterprise_telephone  = models.CharField(max_length=255, verbose_name=u"企业联系电话")
@@ -100,7 +106,9 @@ class Unit_annual_reports_Base_Info(models.Model):
 
 class Unit_annual_reports_Website_Info(models.Model):
     # 企业年报-网站或网店信息
-    Unit_id = models.CharField(max_length=255, verbose_name=u"企业序号")
+    searched_name  = models.CharField(max_length=255, verbose_name=u"查询到的名字", default='-')
+    searching_name = models.CharField(max_length=255, verbose_name=u"需要查询的名字", default='-')
+
     Web_Type = models.CharField(max_length=255, verbose_name=u"类型")
     Web_Name = models.CharField(max_length=255, verbose_name=u"名称")
     Web_Site  = models.CharField(max_length=255, verbose_name=u"网址")
@@ -108,7 +116,8 @@ class Unit_annual_reports_Website_Info(models.Model):
 
 class Unit_annual_Promoters_and_reports_investment_Info(models.Model):
     # 企业年报-发起人及出资信息
-    Unit_id = models.CharField(max_length=255, verbose_name=u"企业序号")
+    searched_name  = models.CharField(max_length=255, verbose_name=u"查询到的名字", default='-')
+    searching_name = models.CharField(max_length=255, verbose_name=u"需要查询的名字", default='-')
     Sponsor = models.CharField(max_length=255, verbose_name=u"发起人")
     Subscribed_capital_contribution = models.CharField(max_length=255, verbose_name=u"认缴出资额（万元）")
     Time_of_subscription  = models.CharField(max_length=255, verbose_name=u"认缴出资时间")
