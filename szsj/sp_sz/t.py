@@ -1,22 +1,32 @@
 # -*- coding: utf-8 -*-
+#! /usr/bin/env python
 
 
-# from selenium import webdriver
-# from scrapy.selector import Selector
-#
-#
-# import  time
-#
-#
-#
-#
-#
-# driver = webdriver.Chrome()
-# driver.get("http://www.qichacha.com/firm_d38086e115661b46f68c31070231d0ab.shtml")
-#
-# aa =  driver.page_source
+
+
+from selenium import webdriver
+from scrapy.selector import Selector
+
+
+import  time
+
+
+
+
+
+driver = webdriver.Firefox()
+driver.get("http://www.qichacha.com/firm_d38086e115661b46f68c31070231d0ab.shtml")
+
+aa =  driver.page_source
+
+print aa
+
+driver.close()
+
+
+
 # response = Selector(text=aa)
-#
+# #
 #
 #
 # tbody = response.xpath('//*[@id="Changelist"]/table/tbody/tr')
@@ -37,21 +47,6 @@
 #     print "*" * 30
 #
 #
-
-
-
-
-
-
-
-
-aa = "http://wpa.qq.com/msgrd?v=3&uin=3352118161&site=qq&menu=yes"
-i = aa.split("=")[2].split("&")[0]
-
-print i
-
-
-
 
 
 

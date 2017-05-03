@@ -256,7 +256,6 @@ class DjORM(object):
 
 
 
-
     @classmethod
     def query(self, Number):
         if Number == 0:

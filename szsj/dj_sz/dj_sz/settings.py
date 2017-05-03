@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'dj_sz.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ccc',
+        'NAME': 'szsj',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': '192.168.4.222',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }

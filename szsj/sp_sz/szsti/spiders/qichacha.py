@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from selenium import webdriver
+from selenium.webdriver.common.proxy import *
 # from selenium.webdriver.common.keys import Keys
 # from selenium.webdriver import DesiredCapabilities
 from scrapy.selector import Selector
 import time
 from szsti.utils.Save2DB import DjORM
+
 from szsti.utils.PageAnaylist import qichachca
 
 
@@ -16,10 +18,22 @@ class SzSpider(scrapy.Spider):
 
     # 初始化，这里要调用无头浏览器
     def __init__(self):
-        self.driver = webdriver.Chrome()
+
+        myProxy = "http://192.168.2.160:1080"
+
+        proxy = Proxy({
+            'proxyType': ProxyType.MANUAL,
+            'httpProxy': myProxy,
+            'ftpProxy': myProxy,
+            'sslProxy': myProxy,
+            'noProxy': ''})
+
+
+
+        self.driver = webdriver.Firefox(proxy=proxy)
         # 定义Number值,如果中间爬取失败,可以设置继续爬取值重新爬取数据,默认从0开始
         # Number = 1849
-        Number = 1870
+        Number = 1605
 
         self.units = DjORM.query(Number)
 
