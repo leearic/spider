@@ -1276,3 +1276,11 @@ JavaScript warning: http://www.qichacha.com/material/theme/chacha/cms/v2/js/jque
 JavaScript warning: http://www.qichacha.com/material/theme/chacha/cms/v2/js/jquery.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
 JavaScript error: http://bdimg.share.baidu.com/static/api/js/trans/logger.js?v=d16ec0e3.js, line 1: TypeError: n.ajax.request is not a function
 JavaScript warning: http://www.qichacha.com/material/theme/chacha/cms/v2/js/jquery.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1495099774270	geckodriver	INFO	Listening on 127.0.0.1:58684
+1495099775364	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1495099777661	Marionette	INFO	Listening on port 36486
+1495099777794	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.qichacha.com/material/theme/chacha/cms/v2/js/jquery.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://www.qichacha.com/material/theme/chacha/cms/v2/js/jquery.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://www.qichacha.com/material/theme/chacha/cms/v2/js/jquery.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1495099804474	Marionette	INFO	New connections will no longer be accepted

@@ -63,9 +63,10 @@ class A17173Spider(scrapy.Spider):
 
         items = AcgItem()
         items["title"] = title[0]
+
         items["url"]  = response.url
         if len(content) == 0:
-            items['content'] = " ."
+            items['content'] = "."
         else:
             # print len(content)
             items['content'] = content[0]
