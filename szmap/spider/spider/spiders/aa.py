@@ -42,6 +42,8 @@ class AaSpider(scrapy.Spider):
             szmap_data.zhishu = zhishu.strip()
             szmap_data.chesu = chesu.strip()
             szmap_data.dengji =  dengji.strip()
+            os.environ['TZ'] = 'Asia/Shanghai'
+            time.tzset()
             szmap_data.addtime = time.strftime('%Y-%m-%d %H:%M', time.localtime(time.time()))
             if szmap_data.dengji == u'等级':
                 pass
