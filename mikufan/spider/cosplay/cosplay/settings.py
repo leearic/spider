@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'cosplay.spiders'
 LOG_LEVEL='ERROR'
 
 # this is django path
-DJpath = '/home/aric/PycharmProjects/mikufan/frontend'
+DJpath = '/home/aric/PycharmProjects/spider/mikufan/frontend'
 
 
 

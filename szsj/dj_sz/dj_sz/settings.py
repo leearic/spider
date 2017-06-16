@@ -69,6 +69,8 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'dj_sz.wsgi.application'
 
 
