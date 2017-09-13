@@ -18,7 +18,10 @@ class ChespiderPipeline(object):
     def process_item(self, item, spider):
         myredis = MyRedis.Redis_MQ()
         SpiderLog.log(settings.BOT_NAME, item)
-        myredis.set('DetailURL', item['DetailURL'])
+
+        print
+
+        # myredis.set('DetailURL', item['DetailURL'])
         # print item['DetailURL']
     #
     # def item_completed(self, results, item, info):
